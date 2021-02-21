@@ -22,18 +22,13 @@ class ThemeCubit extends HydratedCubit<Color> {
 
 extension on Weather {
   Color get toColor {
-    switch (condition) {
-      case WeatherCondition.clear:
-        return Colors.amber;
-      case WeatherCondition.snowy:
-        return Colors.cyan;
-      case WeatherCondition.cloudy:
-        return Colors.lightBlue;
-      case WeatherCondition.rainy:
-        return Colors.indigo;
-      case WeatherCondition.unknown:
-      default:
-        return ThemeCubit.defaultColor;
+    TimeOfDay now = TimeOfDay.now();
+
+    if(now.hour > 6 && now.hour < 18)
+      return Colors.amber;
+    else
+      return Colors.indigo;
+
     }
   }
-}
+

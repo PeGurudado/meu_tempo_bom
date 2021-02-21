@@ -49,6 +49,34 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Procurar Cidade', style: TextStyle(fontSize: 25),),),
       body:  Column(children: <Widget>[
+        Row(
+          children: [
+            Spacer(),
+            const Text(
+              'Favorito: ',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                height: 2,
+                color: Colors.black,
+                fontSize: 29,
+              ),
+            ),
+            if(favoriteCity != null)
+              (
+                  FlatButton(
+                    onPressed: () => {
+                      Navigator.of(context).pop( favoriteCity )},
+                    child: Text( favoriteCity,
+                        textAlign: TextAlign.center, style: TextStyle(
+                          height: 2,
+                          color: Colors.black,
+                          fontSize: 29,
+                        )),
+                  )
+              ),
+            Spacer(),
+          ],
+        ),
           Row(
           // direction: Axis.vertical,
           // alignment: WrapAlignment.start,
@@ -149,25 +177,8 @@ class _SearchPageState extends State<SearchPage> {
                     textAlign: TextAlign.center, textScaleFactor: 1.6),
               )
             ),
-            const Text(
-              'Favorito: ',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                height: 3,
-                color: Colors.black,
-                fontSize: 29,
-              ),
-            ),
 
-            if(favoriteCity != null)
-              (
-                  FlatButton(
-                    onPressed: () => {
-                      Navigator.of(context).pop( favoriteCity )},
-                    child: Text( favoriteCity,
-                        textAlign: TextAlign.center, textScaleFactor: 1.6),
-                  )
-              ),
+
             ],
           ),
           ),

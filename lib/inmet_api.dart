@@ -19,10 +19,14 @@ Future<List<dynamic>> inmetGetInfos(String name) async
   var lista = await client.read(_baseUrl);
   var citiesMap = json.decode(lista) as List<dynamic>;
 
+
+  bool found = false;
   for(int i = 0; i < citiesMap.length; i++)
   {
     if(citiesMap[i]["DC_NOME"] == desiredCity)
     {
+      found = true;
+
       cityName = citiesMap[i]["DC_NOME"] as String;
 
       tempMin = double.parse(citiesMap[i]["TEM_MIN"]);
@@ -35,6 +39,11 @@ Future<List<dynamic>> inmetGetInfos(String name) async
       print(infosList);
       storage.setItem("city",infosList);
 
+      break;
     }
   }
+
+  if(found == false)
+    storage.setItem('city', null);
+
 }

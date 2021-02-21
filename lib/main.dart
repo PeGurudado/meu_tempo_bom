@@ -11,9 +11,11 @@ import 'package:weather_repository/weather_repository.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:meta_weather_api/inmet_api.dart';
 
-final LocalStorage storage = LocalStorage('localstorage_app');
+LocalStorage storage;
 
 void main() async {
+
+  storage = LocalStorage('localstorage_app');
   WidgetsFlutterBinding.ensureInitialized();
   EquatableConfig.stringify = kDebugMode;
   Bloc.observer = WeatherBlocObserver();

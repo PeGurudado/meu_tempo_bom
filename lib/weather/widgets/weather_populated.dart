@@ -26,7 +26,7 @@ class WeatherPopulated extends StatelessWidget {
   {
     String fav = storage.getItem("favorito") as String;
 
-    if( fav == weather.location)
+    if( fav == storage.getItem("city")[0] as String)
       return true;
     else
       return false;
@@ -50,9 +50,11 @@ class WeatherPopulated extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 48),
-                  _WeatherIcon(condition: weather.condition),
+                  Text(getEmoji(), style: theme.textTheme.headline1.copyWith(
+                    fontWeight: FontWeight.w200,
+                  ),),
                   Text(
-                    weather.location,
+                    storage.getItem("city")[0] as String,
                     style: theme.textTheme.headline2.copyWith(
                       fontWeight: FontWeight.w200,
                     ),
@@ -62,7 +64,7 @@ class WeatherPopulated extends StatelessWidget {
                     valueChanged: (bool isCityFavorite) {
                       String favoriteCity = null;
                       if(isCityFavorite == true)
-                        favoriteCity = weather.location;
+                        favoriteCity = storage.getItem("city")[0] as String;
                       else
                         favoriteCity = null;
 
@@ -88,15 +90,18 @@ class WeatherPopulated extends StatelessWidget {
                     ),
                   ),
                   Text(
+                    "Umidade Ar: "+ weather.getHumidity(),
+                    style: theme.textTheme.headline5.copyWith(
+                      fontWeight: FontWeight.w100,
+                    ),
+                  ),
+                  Text(
                     "Heat Index : "+ weather.getHeatIndex(),
                     style: TextStyle(height: 2,fontSize: 33),
                   ),
                   Text(
                     "Nível de alerta: "+ weather.getHeatIndexAlert(),
                     style: TextStyle(fontSize: 25),
-                  ),
-                  Text(
-                    '''Atualizado as ${TimeOfDay.fromDateTime(weather.lastUpdated).format(context)}''',
                   ),
                 ],
               ),
@@ -129,20 +134,24 @@ class _WeatherIcon extends StatelessWidget {
 
 extension on WeatherCondition {
   String get toEmoji {
-    switch (this) {
-      case WeatherCondition.clear:
-        return '☀️';
-      case WeatherCondition.rainy:
-        return '🌧️';
-      case WeatherCondition.cloudy:
-        return '☁️';
-      case WeatherCondition.snowy:
-        return '🌨️';
-      case WeatherCondition.unknown:
-      default:
-        return '❓';
-    }
+
+    TimeOfDay now = TimeOfDay.now();
+
+    if(now.hour > 6 && now.hour < 18)
+      return '☀️';
+    else
+      return '🌙️';
   }
+}
+
+String getEmoji() {
+
+  TimeOfDay now = TimeOfDay.now();
+
+  if(now.hour > 6 && now.hour < 18)
+    return '☀️';
+  else
+    return '🌙️';
 }
 
 class _WeatherBackground extends StatelessWidget {
@@ -192,15 +201,21 @@ extension on Weather {
   String getMinTemperature() {
     double tempMin = storage.getItem("city")[2];
 
-
     return '''${tempMin.toStringAsPrecision(2)}°'C''';
+  }
+}
+
+extension on Weather {
+  String getHumidity() {
+    double humidity = storage.getItem("city")[4];
+
+    return '''${humidity.toStringAsPrecision(2)}%''';
   }
 }
 
 extension on Weather {
   String getMaxTemperature() {
     double tempMax = storage.getItem("city")[3];
-
 
     return '''${tempMax.toStringAsPrecision(2)}°'C''';
   }
@@ -212,8 +227,9 @@ double heatIndex;
 extension on Weather {
   String getHeatIndex() {
     double T = storage.getItem("city")[1], RH = storage.getItem("city")[4];
-    T= temperature.value;
-    
+
+    T= (T * 9/5) + 32;
+
     bool HIcheck;
     double HIf = 0;
     double HI = 0;
@@ -247,6 +263,12 @@ extension on Weather {
       else
         HIcheck = false;
     }
+    HIf= (HIf -32) * 5/9;
+    if (HIcheck == false)
+      HIf = 0;
+
+
+
 
     heatIndex = HIf;
     return  '''${heatIndex.toStringAsPrecision(2)}°'C''';
