@@ -19,21 +19,35 @@ Future<List<dynamic>> inmetGetInfos(String name) async
   var lista = await client.read(_baseUrl);
   var citiesMap = json.decode(lista) as List<dynamic>;
 
-
   bool found = false;
   for(int i = 0; i < citiesMap.length; i++)
   {
     if(citiesMap[i]["DC_NOME"] == desiredCity)
     {
       found = true;
-
       cityName = citiesMap[i]["DC_NOME"] as String;
 
-      tempMin = double.parse(citiesMap[i]["TEM_MIN"]);
-      tempMax = double.parse(citiesMap[i]["TEM_MAX"]);
-      temp = double.parse(citiesMap[i]["TEM_INS"]);
+      print(citiesMap[i]);
 
-      humidity = double.parse(citiesMap[i]["UMD_INS"]);
+      if(citiesMap[i]["TEM_MIN"] != null)
+        tempMin = double.parse(citiesMap[i]["TEM_MIN"]);
+      else
+        tempMin = 0;
+
+      if(citiesMap[i]["TEM_MAX"] != null)
+        tempMax = double.parse(citiesMap[i]["TEM_MAX"]);
+      else
+        tempMax = 0;
+
+      if(citiesMap[i]["TEM_INS"] != null)
+        temp = double.parse(citiesMap[i]["TEM_INS"]);
+      else
+        temp = 0;
+
+      if(citiesMap[i]["UMD_INS"] != null)
+        humidity = double.parse(citiesMap[i]["UMD_INS"]);
+      else
+        humidity = 0;
 
       var infosList = [cityName, temp, tempMin, tempMax, humidity];
       print(infosList);
@@ -44,6 +58,5 @@ Future<List<dynamic>> inmetGetInfos(String name) async
   }
 
   if(found == false)
-    storage.setItem('city', null);
-
+    storage.setItem("city",null);
 }

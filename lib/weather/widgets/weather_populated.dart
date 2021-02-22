@@ -2,12 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_weather/weather/weather.dart';
-import 'package:weather_repository/weather_repository.dart'
-    show WeatherCondition;
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter_weather/main.dart';
-import 'package:localstorage/localstorage.dart';
-import 'package:flutter_weather/search/search.dart';
 
 class WeatherPopulated extends StatelessWidget {
   const WeatherPopulated({
@@ -31,7 +27,6 @@ class WeatherPopulated extends StatelessWidget {
     else
       return false;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -143,6 +138,8 @@ extension on WeatherCondition {
       return '🌙️';
   }
 }
+
+
 
 String getEmoji() {
 
@@ -266,9 +263,6 @@ extension on Weather {
     HIf= (HIf -32) * 5/9;
     if (HIcheck == false)
       HIf = 0;
-
-
-
 
     heatIndex = HIf;
     return  '''${heatIndex.toStringAsPrecision(2)}°'C''';

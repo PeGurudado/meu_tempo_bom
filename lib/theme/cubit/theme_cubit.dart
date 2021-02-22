@@ -28,7 +28,6 @@ extension on Weather {
       return Colors.amber;
     else
       return Colors.indigo;
-
     }
   }
 

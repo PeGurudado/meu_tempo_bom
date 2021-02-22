@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dart:convert';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_weather/weather/weather.dart';
 import 'package:flutter_weather/main.dart';
-import 'package:localstorage/localstorage.dart';
 
 class SearchPage extends StatefulWidget {
   SearchPage._({Key key}) : super(key: key);
@@ -78,10 +73,6 @@ class _SearchPageState extends State<SearchPage> {
           ],
         ),
           Row(
-          // direction: Axis.vertical,
-          // alignment: WrapAlignment.start,
-          // spacing: 10.0,
-          // runSpacing: 20.0,
           children: [
               Expanded(
                 child: Padding(
@@ -177,12 +168,9 @@ class _SearchPageState extends State<SearchPage> {
                     textAlign: TextAlign.center, textScaleFactor: 1.6),
               )
             ),
-
-
             ],
           ),
           ),
-
       ],
     ),
     );

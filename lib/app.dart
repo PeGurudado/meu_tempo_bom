@@ -4,10 +4,6 @@ import 'package:flutter_weather/theme/theme.dart';
 import 'package:flutter_weather/weather/weather.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_repository/weather_repository.dart';
-import 'package:localstorage/localstorage.dart';
-import 'package:flutter_weather/main.dart';
-import 'package:flutter_weather/weather/widgets/weather_populated.dart';
-import 'package:flutter_weather/search/search.dart';
 
 class WeatherApp extends StatelessWidget {
   const WeatherApp({Key key, @required WeatherRepository weatherRepository})

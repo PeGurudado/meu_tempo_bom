@@ -2,9 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_weather/weather/weather.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta_weather_api/inmet_api.dart';
-import 'package:localstorage/localstorage.dart';
-import 'package:meta_weather_api/inmet_api.dart';
+import 'package:flutter_weather/inmet_api.dart';
 import 'package:flutter_weather/main.dart';
 import 'package:weather_repository/weather_repository.dart'
     show WeatherRepository;
@@ -45,7 +43,6 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
       print("falhou a cidade");
       emit(state.copyWith(status: WeatherStatus.failure));
     }
-
   }
 
   Future<void> refreshWeather() async {
@@ -57,7 +54,6 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
       emit(state.copyWith(status: WeatherStatus.success));
     else
       emit(state.copyWith(status: WeatherStatus.failure));
-
 
   }
 
@@ -78,8 +74,3 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
   Map<String, dynamic> toJson(WeatherState state) {
     throw UnimplementedError();
   }
-
-// extension on double {
-//   double toFahrenheit() => ((this * 9 / 5) + 32);
-//   double toCelsius() => ((this - 32) * 5 / 9);
-// }

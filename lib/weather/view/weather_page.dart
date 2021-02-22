@@ -5,7 +5,6 @@ import 'package:flutter_weather/theme/theme.dart';
 import 'package:flutter_weather/weather/weather.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:weather_repository/weather_repository.dart';
-import 'package:favorite_button/favorite_button.dart';
 
 class WeatherPage extends StatelessWidget {
   @override
