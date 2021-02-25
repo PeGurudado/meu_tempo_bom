@@ -219,7 +219,7 @@ extension on Weather {
 }
 
 
-double heatIndex;
+String heatIndex;
 
 extension on Weather {
   String getHeatIndex() {
@@ -261,23 +261,26 @@ extension on Weather {
         HIcheck = false;
     }
     HIf= (HIf -32) * 5/9;
-    if (HIcheck == false)
-      HIf = 0;
 
-    heatIndex = HIf;
-    return  '''${heatIndex.toStringAsPrecision(2)}°'C''';
+    heatIndex = HIf.toStringAsPrecision(2);
+    if (HIcheck == false)
+      heatIndex = "Indefinido";
+    return  heatIndex + '°C';
   }
 }
 
 extension on Weather {
   String getHeatIndexAlert() {
-    if(heatIndex <= 27)
+
+    if(heatIndex == "Indefinido")
+      return 'Inválido';
+    else if(double.parse(heatIndex) <= 27)
       return 'Normal';
-    else if(heatIndex <= 32)
+    else if(double.parse(heatIndex) <= 32)
       return 'Cautela';
-    else if(heatIndex <= 41)
+    else if(double.parse(heatIndex) <= 41)
       return 'Cautela Extrema';
-    else if(heatIndex <= 54)
+    else if(double.parse(heatIndex) <= 54)
       return 'Perigo';
     else
       return 'Perigo Extremo';
