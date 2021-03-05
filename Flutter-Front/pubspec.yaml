@@ -1,0 +1,45 @@
+name: flutter_weather
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.12.0+2
+  equatable: ^1.2.5
+  flutter_bloc: ^6.1.0
+  google_fonts: ^1.1.0
+  toast: ^0.1.5
+  requests: ^3.3.0
+  #  firebase:
+  hydrated_bloc: ^6.0.0
+  json_annotation: ^3.0.1
+  pedantic: ^1.9.0
+  favorite_button: ^0.0.3
+  localstorage: ^3.0.0
+  weather_repository:
+    path: packages/weather_repository
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^7.1.0
+  build_runner: ^1.10.0
+  json_serializable: ^3.4.0
+  mockito: ^4.0.0
+
+  flutter_launcher_icons: ^0.8.0
+
+
+flutter_icons:
+  image_path: "assets/icon/icon.png"
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

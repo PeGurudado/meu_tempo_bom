@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1015153411312",
+    "project_id": "meutempobom",
+    "storage_bucket": "meutempobom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015153411312:android:54b92890e36decd209ae35",
+        "android_client_info": {
+          "package_name": "com.example.flutter_weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015153411312-kfd2r4nl1o6e0uhu6vdvdneuld9gvbn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFVOWYN1cjEIBofegjoByqhXG6ZIamFzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015153411312-kfd2r4nl1o6e0uhu6vdvdneuld9gvbn8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
