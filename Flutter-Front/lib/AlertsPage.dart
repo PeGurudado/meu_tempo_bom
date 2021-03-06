@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather/main.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_weather/alertRegister.dart';
+import 'package:flutter_weather/weather/weather.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pedantic/pedantic.dart';
+
 
 
 
@@ -26,7 +31,10 @@ class _AlertsPageState extends State<AlertsPage> {
 
   // CollectionReference alerts
   //         = FirebaseFirestore.instance.collection('professores');
-
+  // void SaveFirebase() async {
+  // await FirebaseFirestore.instance.collection('Recife').doc('Aviso0')
+  //     .set({"Tipo": "Desabamento", "Localizacao": "Rua quatro queijos macaricados"} as Map<String,dynamic>);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -159,8 +167,8 @@ class _AlertsPageState extends State<AlertsPage> {
         minWidth: MediaQuery.of(context).size.width - 32,
         onPressed: () async {
           print('Lista de alertas cheia');
-          // final city = await Navigator.of(context).push(SearchPage.route());
-          // unawaited(context.read<WeatherCubit>().fetchWeather(city));
+          final city = await Navigator.of(context).push(AlertRegister.route());
+          unawaited(context.read<WeatherCubit>().fetchWeather(city));
         },
       ),
     );

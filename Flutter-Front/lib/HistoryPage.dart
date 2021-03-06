@@ -79,7 +79,7 @@ class _HistPageState extends State<HistPage> {
             child: Wrap(
               children: [
                 // Spacer(),
-                Text(( "Data: "+timeHist[i][7]+", Hora: "+((timeHist[i][8]/100)-2).toString()+
+                Text(( "Data: "+timeHist[i][7]+", Hora: "+(timeHist[i][8]/100).toString()+
                     ", Temperatura: "+timeHist[i][0].toString()+", Temperatura min. : "+
                     timeHist[i][3].toString()+", Temperatura max. : "+
                     timeHist[i][4].toString()+", Umidade: "+

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed4c5c8e-d92a-4079-a705-f432ab9d7191" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Flutter-Front/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/Flutter-Front/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flutter-Front/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Flutter-Front/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flutter-Front/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Flutter-Front/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flutter-Front/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Flutter-Front/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GroovyConsoleState">
+    <option name="list">
+      <list>
+        <Entry>
+          <option name="moduleName" value="flutter_weather" />
+          <option name="url" value="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy" />
+        </Entry>
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1oO4Il3INjzrcLz43SSlenPeWpB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="P:\Downloads\meu_tempo_bom\android\app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="P:\Downloads\meu_tempo_bom\android" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in bin" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
+      <option name="testFile" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flutter.main.dart" />
+      <item itemvalue="Flutter Test.tests in bin" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed4c5c8e-d92a-4079-a705-f432ab9d7191" name="Default Changelist" comment="" />
+      <created>1613144224198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1613144224198</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1211" y="338" key="#Custom_Plugin_Repositories" timestamp="1614721610795">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1211" y="338" key="#Custom_Plugin_Repositories/0.0.1920.1050@0.0.1920.1050" timestamp="1614721610795" />
+    <state x="845" y="388" key="#Notifications" timestamp="1614733221917">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="845" y="388" key="#Notifications/0.0.1920.1050@0.0.1920.1050" timestamp="1614733221917" />
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614704134538">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1614704134538" />
+    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614002355336">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1614002355336" />
+    <state x="669" y="261" key="#tests_in_bin" timestamp="1613948828897">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="669" y="261" key="#tests_in_bin/0.0.1920.1050@0.0.1920.1050" timestamp="1613948828897" />
+    <state x="84" y="98" width="1376" height="676" key="AVDManager" timestamp="1614964238794">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="84" y="98" width="1376" height="676" key="AVDManager/0.0.1536.834@0.0.1536.834" timestamp="1614964238794" />
+    <state x="-1" y="101" width="1720" height="850" key="AVDManager/0.0.1920.1050@0.0.1920.1050" timestamp="1614726288462" />
+    <state x="703" y="195" key="FileChooserDialogImpl" timestamp="1614923668823">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="703" y="195" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1614923668823" />
+    <state x="1055" y="297" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1614896864969" />
+    <state width="1236" height="176" key="GridCell.Tab.0.bottom" timestamp="1614963816344">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1236" height="176" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1614961914898" />
+    <state width="1236" height="176" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1614963816344" />
+    <state width="1877" height="404" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1614895111007" />
+    <state width="1236" height="176" key="GridCell.Tab.0.center" timestamp="1614963816344">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1236" height="176" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1614961914897" />
+    <state width="1236" height="176" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1614963816344" />
+    <state width="1877" height="404" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1614895111007" />
+    <state width="1236" height="176" key="GridCell.Tab.0.left" timestamp="1614963816343">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1236" height="176" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1614961914897" />
+    <state width="1236" height="176" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1614963816343" />
+    <state width="1877" height="404" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1614895111007" />
+    <state width="1236" height="176" key="GridCell.Tab.0.right" timestamp="1614963816344">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1236" height="176" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1614961914897" />
+    <state width="1236" height="176" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1614963816344" />
+    <state width="1877" height="404" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1614895111007" />
+    <state x="540" y="268" key="IDE.errors.dialog" timestamp="1614720366804">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="540" y="268" key="IDE.errors.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1614720366804" />
+    <state x="555" y="67" key="SettingsEditor" timestamp="1614963710345">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="555" y="67" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1614963710345" />
+    <state x="833" y="84" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1614726288128" />
+    <state x="92" y="92" width="1736" height="866" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1614563369352">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="92" y="92" width="1736" height="866" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1614563369352" />
+    <state x="1084" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614031996379">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1084" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1614031996379" />
+    <state x="101" y="0" width="1399" height="1029" key="dock-window-1" timestamp="1613423074994">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="101" y="0" width="1399" height="1029" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1613423074994" />
+    <state x="411" y="161" key="run.anything.popup" timestamp="1614929712442">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="411" y="161" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1614929712442" />
+    <state x="616" y="245" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1614726259433" />
+    <state x="751" y="383" key="scopes" timestamp="1614630318708">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="751" y="383" key="scopes/0.0.1920.1050@0.0.1920.1050" timestamp="1614630318708" />
+    <state x="623" y="233" width="672" height="678" key="search.everywhere.popup" timestamp="1614641997630">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="233" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1614641997630" />
+  </component>
+</project>
