@@ -11,6 +11,7 @@ import 'package:flutter_weather/weather/weather.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:flutter_weather/main.dart';
 import 'package:weather_repository/weather_repository.dart';
+import'package:flutter_weather/AlertsPage.dart';
 import 'package:localstorage/localstorage.dart';
 
 class WeatherPage extends StatelessWidget {
@@ -105,6 +106,7 @@ class WeatherView extends StatelessWidget {
                   leading: Icon(Icons.warning_amber_sharp),
                   title: Text('Alertas' , style: TextStyle(fontSize: 25)),
                   onTap: () async {
+                    dadosCity = [];
                     final city = await Navigator.of(context).push(AlertsPage.route());
                     unawaited(context.read<WeatherCubit>().fetchWeather(city));
                   }

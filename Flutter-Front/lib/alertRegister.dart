@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather/main.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_weather/AlertsPage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -25,9 +26,11 @@ class _AlertRegisterState extends State<AlertRegister> {
 
   final TextEditingController _textController = TextEditingController();
   final TextEditingController _textControllerB = TextEditingController();
+  final TextEditingController _textControllerC = TextEditingController();
 
   String get _text => _textController.text;
   String get _textB => _textControllerB.text;
+  String get _textC => _textControllerB.text;
 
   File imageFile;
 
@@ -35,6 +38,7 @@ class _AlertRegisterState extends State<AlertRegister> {
   void dispose() {
     _textController.dispose();
     _textControllerB.dispose();
+    _textControllerC.dispose();
     super.dispose();
   }
 
@@ -92,7 +96,7 @@ class _AlertRegisterState extends State<AlertRegister> {
           ),
         ),
 
-        body: Column(children: <Widget>[
+        body: ListView(children: <Widget>[
           Row(
             children: [
               Expanded(
@@ -139,6 +143,29 @@ class _AlertRegisterState extends State<AlertRegister> {
             ),
           ],
         ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    style: TextStyle(color: Colors.black, fontSize: 25),
+                    controller: _textControllerC,
+                    decoration: const InputDecoration(
+                      labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25),
+                      labelText: 'Descricao do desastre',
+                      hintText: 'Aconteceu da seguinte forma...',
+                      hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 25),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         Row(
             children: [
               Spacer(),
@@ -171,8 +198,18 @@ class _AlertRegisterState extends State<AlertRegister> {
                 storage.setItem("${(storage.getItem("city")[0] as String)}alertN",storage.getItem("${(storage.getItem("city")[0] as String)}alertN")+1);
               else
                 storage.setItem(("${(storage.getItem("city")[0] as String)}alertN"), 1);
+
+              if(_text == "")
+                _text.replaceAll("", "Indefinido");
+
+              if(_textB == "")
+                _textB.replaceAll("", "Indefinida");
+
+              if(_textC == "")
+                _textC.replaceAll("", "Indefinida");
+
               await FirebaseFirestore.instance.collection((storage.getItem("city")[0] as String)).doc('Aviso${storage.getItem(("${(storage.getItem("city")[0] as String)}alertN"))}')
-                  .set({"Tipo": _text, "Localizacao": _textB, "Foto": imageFile} as Map<String,dynamic>);
+                  .set({"Tipo": _text, "Localizacao": _textB, "Descricao" : _textC} as Map<String,dynamic>);
               Navigator.of(context).pop(storage.getItem("city")[0]);
               Navigator.of(context).pop(storage.getItem("city")[0]);
           },
