@@ -42,14 +42,6 @@ class _AlertRegisterState extends State<AlertRegister> {
     super.dispose();
   }
 
-  // void _ImgFromCamera() async {
-  //   File _image = await ImagePicker.pickImage(
-  //       source: ImageSource.camera, //imageQuality: 50
-  //   );
-  //   SetState(() {
-  //     _image = image;
-  //   });
-  // }
 
   void _getFromCamera() async {
     PickedFile pickedFile = await ImagePicker().getImage(
@@ -207,6 +199,7 @@ class _AlertRegisterState extends State<AlertRegister> {
 
               if(_textC == "")
                 _textC.replaceAll("", "Indefinida");
+
 
               await FirebaseFirestore.instance.collection((storage.getItem("city")[0] as String)).doc('Aviso${storage.getItem(("${(storage.getItem("city")[0] as String)}alertN"))}')
                   .set({"Tipo": _text, "Localizacao": _textB, "Descricao" : _textC} as Map<String,dynamic>);
