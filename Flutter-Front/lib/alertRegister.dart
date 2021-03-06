@@ -167,12 +167,14 @@ class _AlertRegisterState extends State<AlertRegister> {
           minWidth: MediaQuery.of(context).size.width - 32,
           onPressed: () async {
               // print(_text);
-              // print(_textB);//imageFile
-              await FirebaseFirestore.instance.collection((storage.getItem("city")[0] as String)).doc('Aviso')
-                  .set({"Tipo": _text, "Localizacao": _textB} as Map<String,dynamic>);
-              // Navigator.of(context).pop(storage.getItem("city")[0]);
-            // final city = await Navigator.of(context).push(SearchPage.route());
-            // unawaited(context.read<WeatherCubit>().fetchWeather(city));
+              if(storage.getItem("${(storage.getItem("city")[0] as String)}alertN") != null)
+                storage.setItem("${(storage.getItem("city")[0] as String)}alertN",storage.getItem("${(storage.getItem("city")[0] as String)}alertN")+1);
+              else
+                storage.setItem(("${(storage.getItem("city")[0] as String)}alertN"), 1);
+              await FirebaseFirestore.instance.collection((storage.getItem("city")[0] as String)).doc('Aviso${storage.getItem(("${(storage.getItem("city")[0] as String)}alertN"))}')
+                  .set({"Tipo": _text, "Localizacao": _textB, "Foto": imageFile} as Map<String,dynamic>);
+              Navigator.of(context).pop(storage.getItem("city")[0]);
+              Navigator.of(context).pop(storage.getItem("city")[0]);
           },
         ),
       ],

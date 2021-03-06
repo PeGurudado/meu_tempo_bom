@@ -7,7 +7,7 @@ import 'package:flutter_weather/weather/weather.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pedantic/pedantic.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
@@ -25,6 +25,7 @@ class AlertsPage extends StatefulWidget {
 }
 
 
+List<dynamic> dadosCity = [];
 
 class _AlertsPageState extends State<AlertsPage> {
 
@@ -36,9 +37,27 @@ class _AlertsPageState extends State<AlertsPage> {
   //     .set({"Tipo": "Desabamento", "Localizacao": "Rua quatro queijos macaricados"} as Map<String,dynamic>);
   // }
 
+  void AlertsFromCity () async
+  {
+
+    var citiesRef = await FirebaseFirestore.instance.collection( (storage.getItem("city")[0] as String) );
+    List<dynamic> dadosCityAlt = [];
+    for( int i=1; i <= (storage.getItem("${(storage.getItem("city")[0] as String)}alertN") as num); i ++)
+    {
+      List<dynamic> listin = [];
+      var res = await citiesRef.doc("Aviso${i}").get();
+      listin.add(res.data()["Tipo"]);
+      listin.add(res.data()["Localizacao"]);
+      dadosCityAlt.add(listin);
+    }
+    dadosCity = dadosCityAlt;
+    // print(dadosCity);
+  }
+
   @override
   Widget build(BuildContext context) {
 
+    AlertsFromCity();
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -50,7 +69,7 @@ class _AlertsPageState extends State<AlertsPage> {
         ),
       ),
 
-      body:  Column(children: <Widget>[
+      body:  ListView(children: <Widget>[
         Text('ALERTAS DE '+(storage.getItem("city")[0] as String),
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -63,100 +82,30 @@ class _AlertsPageState extends State<AlertsPage> {
         Container(
             child: Wrap(
               children: [
-                Text('- '+'QUEIMADAS'+' - '+
-                    'Caiu um raio na arvore aqui da praca Kaki',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    height: 1.5,
-                    color: Colors.black,
-                    fontSize: 20,
-                  ),
+                if(dadosCity.length == 0)
+                (
+                  Text("CARREGANDO DADOS",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      height: 1.5,
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),)
                 ),
-                Text('__________________________________________________________________________'),
+                for( int i = 0; i < dadosCity.length; i++)
+                (
+                  Text('- Tipo: ${(dadosCity[i][0] as String)} - Localizacao: ${(dadosCity[i][1] as String)}',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      height: 1.5,
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  )
+                ),
               ],
             ),
         ),
-        Container(
-          child: Wrap(
-            children: [
-              Text('- '+'TERREMOTO'+' - '+
-                  'Terremoto de magnitude 6, deve chegar agora de noite',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  height: 1.5,
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              ),
-              Text('__________________________________________________________________________'),
-            ],
-          ),
-        ),
-        Container(
-          child: Wrap(
-            children: [
-              Text('- '+'HOMICÍDIO'+' - '+
-                  'Assasino do sino atacou um cachorro aqui na avenida magalhoes',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  height: 1.5,
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              ),
-              Text('__________________________________________________________________________'),
-            ],
-          ),
-        ),
-        Container(
-          child: Wrap(
-            children: [
-              Text('- '+'QUEIMADAS'+' - '+
-                  'Caiu um raio na arvore aqui da praca Kaki',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  height: 1.5,
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              ),
-              Text('__________________________________________________________________________'),
-            ],
-          ),
-        ),
-        Container(
-          child: Wrap(
-            children: [
-              Text('- '+'DESABAMENTO'+' - '+
-                  'Um predio desabou aqui na Rua colve-flor',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  height: 1.5,
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              ),
-              Text('__________________________________________________________________________'),
-            ],
-          ),
-        ),
-        Container(
-          child: Wrap(
-            children: [
-              Text('- '+'ENCHENTE'+' - '+
-                  'Um caminhao bateu na barragem aqui na Rua sexta feira',
-                textAlign: TextAlign.center,
-                softWrap: true,
-                style: TextStyle(
-                  height: 1.5,
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              ),
-              Text('__________________________________________________________________________'),
-            ],
-          ),
-          ),
       ]
       ),
       floatingActionButton: FlatButton(
@@ -166,9 +115,9 @@ class _AlertsPageState extends State<AlertsPage> {
         height: 70,
         minWidth: MediaQuery.of(context).size.width - 32,
         onPressed: () async {
-          print('Lista de alertas cheia');
-          final city = await Navigator.of(context).push(AlertRegister.route());
-          unawaited(context.read<WeatherCubit>().fetchWeather(city));
+          AlertsFromCity();
+          await Navigator.of(context).push(AlertRegister.route());
+          unawaited(context.read<WeatherCubit>().fetchWeather((storage.getItem("city")[0] as String)));
         },
       ),
     );
