@@ -139,7 +139,7 @@ class _ForecastPageState extends State<ForecastPage> {
                   final city = await Navigator.of(context).push(ForecastPage.route());
                   unawaited(context.read<WeatherCubit>().fetchWeather(city));
                 },
-                child: Text( 'Fator Radicacao Global',
+                child: Text( 'Fator Radiacao Global',
                     textAlign: TextAlign.center, style: TextStyle(
                         height: 2,
                         color: Colors.amber,

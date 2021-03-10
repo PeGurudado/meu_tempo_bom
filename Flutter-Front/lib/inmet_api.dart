@@ -10,17 +10,6 @@ import 'package:requests/requests.dart';
 
 Future<List<dynamic>> inmetGetInfos(String name) async
 {
-  // final String postsURL = "https://thingsboard.cloud/api/v1/v3krhovXisGUkHiXHhmf";
-  //
-  // Future<List<Post>> getPosts() async {
-  //   Response res = await get(postsURL);
-  //
-  //   if (res.statusCode == 200) {
-  //     List<dynamic> body = jsonDecode(res.body);
-  //   }}}
-  //   /////////////////////////////////////////////////////////
-
-
 //
   String cityName;
   double tempMin, tempMax, temp, humidity, radiation, wind, heatIndex;
@@ -29,16 +18,7 @@ Future<List<dynamic>> inmetGetInfos(String name) async
 
   String desiredCity = name.toUpperCase();
 
-  String _baseUrl = 'https://8w93l0f9mc.execute-api.us-east-1.amazonaws.com/default/API-REST-INMET';
-//
-//___________________
-
   String URL = 'https://thingsboard.cloud/api/v1/v3krhovXisGUkHiXHhmf';
-  // print('https://thingsboard.cloud/api/v1/v3krhovXisGUkHiXHhmf/attributes?clientKeys=${cityName.toString()}&sharedKeys=shared1');
-// //def getRecords( nomeCidade):
-// //     return req('GET', URL + "/attributes?clientKeys="+nomeCidade+"&sharedKeys=shared1").read()
-//
-//   print(URL+"/attributes?clientKeys="+cityName+"&sharedKeys=shared1");
   var r = await Requests.get("${URL.toString()}/attributes?clientKeys=${desiredCity.toString()}&sharedKeys=shared1");
   r.raiseForStatus();
   String body = r.content();

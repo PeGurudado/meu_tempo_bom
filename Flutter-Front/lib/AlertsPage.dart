@@ -8,6 +8,7 @@ import 'package:flutter_weather/weather/weather.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_weather/Aviso.dart';
 
 class AlertsPage extends StatefulWidget {
   AlertsPage._({Key key}) : super(key: key);
@@ -51,17 +52,32 @@ class _AlertsPageState extends State<AlertsPage> {
             (storage.getItem("${(storage.getItem("city")[0] as String)}alertN")
                 as num);
         i++) {
-      List<dynamic> listin = [];
+      Aviso aviso = new Aviso();
+
       var res = await citiesRef.doc("Aviso${i}").get();
-      listin.add(res.data()["Tipo"]);
-      listin.add(res.data()["Localizacao"]);
+
       try {
-        listin.add(res.data()["Descricao"]);
+        if(res.data()["Descricao"]  != null)
+          aviso.descricao = res.data()["Descricao"] as String;
       } catch (RangeError) {
-        listin.add("Sem descricao");
+        aviso.descricao = "Descricao Indefinida.";
       }
 
-      dadosCityAlt.add(listin);
+      try {
+        if(res.data()["Localizacao"]  != null)
+          aviso.local = res.data()["Localizacao"] as String;
+      } catch (RangeError) {
+        aviso.local = "Local Indefinido.";
+      }
+
+      try {
+        if(res.data()["Tipo"]  != null)
+          aviso.tipo = res.data()["Tipo"] as String;
+      } catch (RangeError) {
+        aviso.tipo =  "Tipo Indefinido";
+      }
+
+      dadosCityAlt.add(aviso);
     }
     dadosCity = dadosCityAlt;
     // print(dadosCity);
@@ -121,7 +137,7 @@ class _AlertsPageState extends State<AlertsPage> {
                 )),
               for (int i = 0; i < dadosCity.length; i++)
                 (Text(
-                  '\n- Tipo: ${(dadosCity[i][0] as String)} - Localizacao: ${(dadosCity[i][1] as String)} - Descricao: ${(dadosCity[i][2] as String)}',
+                  '\n- Tipo: ${(dadosCity[i].tipo)} - Localizacao: ${(dadosCity[i].local)} - Descricao: ${(dadosCity[i].descricao)}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     height: 1.25,

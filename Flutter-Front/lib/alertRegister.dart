@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_weather/AlertsPage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_weather/Aviso.dart';
 
 class AlertRegister extends StatefulWidget {
   AlertRegister._({Key key}) : super(key: key);
@@ -200,9 +201,13 @@ class _AlertRegisterState extends State<AlertRegister> {
               if(_textC == "")
                 _textC.replaceAll("", "Indefinida");
 
+              Aviso aviso = new Aviso();
+              aviso.tipo = _text;
+              aviso.local = _textB;
+              aviso.descricao = _textC;
 
               await FirebaseFirestore.instance.collection((storage.getItem("city")[0] as String)).doc('Aviso${storage.getItem(("${(storage.getItem("city")[0] as String)}alertN"))}')
-                  .set({"Tipo": _text, "Localizacao": _textB, "Descricao" : _textC} as Map<String,dynamic>);
+                  .set({"Tipo": aviso.tipo, "Localizacao": aviso.local, "Descricao" : aviso.descricao} as Map<String,dynamic>);
               Navigator.of(context).pop(storage.getItem("city")[0]);
               Navigator.of(context).pop(storage.getItem("city")[0]);
           },
